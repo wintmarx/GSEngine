@@ -15,7 +15,7 @@ public:
 	GSENGINE_API void Disable();
 	GSENGINE_API bool AddShader(GLenum type, const char* fileName);
 	GSENGINE_API bool Link();
-	GSENGINE_API GLint GetUniformLocation(const GLchar* name);
+	GSENGINE_API GLint GetUniformLocation(const GLchar* name) const;
 	GSENGINE_API GLuint CreateCompositeShader(GLenum type);
 	GSENGINE_API void AddPartialShaderFile(GLuint compositeShader, const char* fileName);
 	GSENGINE_API void CompileCompositeShader(GLuint compositeShader);

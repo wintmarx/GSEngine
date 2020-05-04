@@ -27,7 +27,7 @@ void main()
 	texColor = materialDiffuseColor;
 	//if (textureSampler != NULL)
 	//{
-		texColor = texture(textureSampler, uv).rgb;
+		//texColor = texture(textureSampler, uv).rgb;
 	//}
 
 	float distance = length( lightPositionW - positionW );
@@ -40,7 +40,7 @@ void main()
 	vec3 R = reflect(-l,n);
 	float cosAlpha = clamp( dot( E,R ), 0,1 );
 	
-	color = vec4(//texColor;
+	color = vec4(//texColor, 1.0);
 		materialAmbientColor * texColor +
 		texColor * lightColor * lightPower * cosTheta / (distance*distance) +
 		materialSpecularColor * lightColor * lightPower * pow(cosAlpha,5) / (distance*distance), 1);

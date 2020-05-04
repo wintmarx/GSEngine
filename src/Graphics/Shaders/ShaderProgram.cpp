@@ -114,7 +114,7 @@ bool ShaderProgram::AddShader(GLenum type, const char *fileName)
 
 bool ShaderProgram::Link()
 {
-	printf("Linking shader program %d\n", id);
+	printf("Linking shader program %d.\n", id);
 	if (id == 0)
 	{
 		printf(" Error! The program is not created.\n");
@@ -138,7 +138,7 @@ bool ShaderProgram::Link()
 	return false;
 }
 
-GLint ShaderProgram::GetUniformLocation(const GLchar *name)
+GLint ShaderProgram::GetUniformLocation(const GLchar *name) const
 {
 	if (id == 0)
 	{

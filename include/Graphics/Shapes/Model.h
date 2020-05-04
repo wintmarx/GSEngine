@@ -7,30 +7,29 @@
 #include "glm/glm.hpp"
 #include "LibExports.h"
 
+#include "Graphics/Shaders/ShaderProgram.h"
+
 class Model
 {
 public:
-	GSENGINE_API Model(const std::string &filePath, GLuint shadingProgramId);
+	GSENGINE_API Model(const std::string &filePath);
 	GSENGINE_API Model();
 	GSENGINE_API ~Model();
 	GSENGINE_API void Draw(const glm::mat4 &model, const glm::mat4 &projection, const glm::mat4 &view, const glm::vec3 &lightPos);
 	GSENGINE_API void AddTexture(GLuint textureId);
-	GSENGINE_API int GetVerticesCount() { return vCoordCount/3; }
-	GSENGINE_API GLuint GetVerticesBuffer() { return vertexShaderBuffer; }
+	int GetVerticesCount() { return verticesCount; }
 private:
-    void LoadModel(std::string filePath);
-    void AddShader(GLuint shadingProgramId);
+    void LoadModel(const std::string &filePath);
+    void AddShader(ShaderProgram& program);
+
+    ShaderProgram program;
 
 	GLuint vertexBuffer;
-	GLuint vertexShaderBuffer;
+    GLuint vao;
 	GLuint indexBuffer;
-	GLuint normalBuffer;
-	GLuint textureBuffer;
 	GLuint textureId;
 	GLuint alphaId;
-	int vCoordCount;
-	int nCoordCount;
-	int tCoordCount;
+	int verticesCount;
 	int indexCount;
 
 	GLuint shadingProgramID;
