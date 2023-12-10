@@ -1,13 +1,14 @@
-#pragma once
-#include "GL/glew.h"
+#ifndef CIRCLE_SHADER_PROGRAM_HEADER
+#define CIRCLE_SHADER_PROGRAM_HEADER
+
 #include "Graphics/Shaders/ShaderProgram.h"
 
-class CircleShaderProgram : public ShaderProgram
-{
-public:
-	CircleShaderProgram(const char *vFilePath, const char *fFilePath);
-	GLint mvpShLoc;
-	GLint colorShLoc;
-	GLint innerRadiusShLoc;
+struct CircleShaderProgram : public ShaderProgram {
+    GSENGINE_API CircleShaderProgram(const char* vFilePath, const char* fFilePath);
+    GSENGINE_API ~CircleShaderProgram() override = default;
+    GLint mvpShLoc;
+    GLint colorShLoc;
+    GLint innerRadiusShLoc;
 };
 
+#endif  // CIRCLE_SHADER_PROGRAM_HEADER

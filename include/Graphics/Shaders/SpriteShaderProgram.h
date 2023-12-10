@@ -1,15 +1,16 @@
-#pragma once
-#include "GL/glew.h"
+#ifndef SPRITE_SHADER_PROGRAM_HEADER
+#define SPRITE_SHADER_PROGRAM_HEADER
+
 #include "Graphics/Shaders/ShaderProgram.h"
 
-class SpriteShaderProgram : public ShaderProgram
-{
-public:
-	SpriteShaderProgram(const char *vFilePath, const char *fFilePath);
-	GLint mvpShLoc;
-	GLint texRegionShLoc;
-	GLint texSamplerShLoc;
-	GLint matDiffColorShLoc;
-	GLint isColoredShLoc;
+struct SpriteShaderProgram : public ShaderProgram {
+    GSENGINE_API SpriteShaderProgram(const char* vFilePath, const char* fFilePath);
+    GSENGINE_API ~SpriteShaderProgram() override = default;
+    GLint mvpShLoc;
+    GLint texRegionShLoc;
+    GLint texSamplerShLoc;
+    GLint matDiffColorShLoc;
+    GLint isColoredShLoc;
 };
 
+#endif  // SPRITE_SHADER_PROGRAM_HEADER

@@ -1,8 +1,6 @@
 #pragma once
-class Rectangle
-{
+class Rectangle {
 public:
-	Rectangle();
-	~Rectangle();
+    Rectangle();
+    ~Rectangle();
 };
-

@@ -2,12 +2,11 @@
 
 #include "GL/glew.h"
 
-class BufferObject
-{
+class BufferObject {
 public:
-	BufferObject(GLenum type, GLuint binding, GLuint size);
-	virtual ~BufferObject();
+    BufferObject(GLenum type, GLuint binding, GLuint size);
+    virtual ~BufferObject();
 
 private:
-	GLuint id;
+    GLuint id;
 };

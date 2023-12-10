@@ -1,26 +1,21 @@
 #define GSENGINE_EXPORT
+
 #include "Graphics/Text/FontController.h"
 
-FontController::FontController()
-{
-}
+#include "Graphics/Text/TextFont.h"
 
+FontController::FontController() {}
 
-FontController::~FontController()
-{
-}
+FontController::~FontController() {}
 
-uint32_t FontController::AddFont(const char *filePath)
-{
-	for (uint32_t i = 0; i < fonts.size(); i++)
-	{
-		if (!fonts[i]->GetFilePath().compare(filePath))
-		{
-			return i;
-		}
-	}
+uint32_t FontController::AddFont(const char* filePath) {
+    for (uint32_t i = 0; i < fonts.size(); i++) {
+        if (!fonts[i]->GetFilePath().compare(filePath)) {
+            return i;
+        }
+    }
 
-	fonts.emplace_back(std::make_shared<TextFont>(filePath));
+    fonts.emplace_back(std::make_shared<TextFont>(filePath));
 
-	return fonts.size() - 1;
+    return fonts.size() - 1;
 }
